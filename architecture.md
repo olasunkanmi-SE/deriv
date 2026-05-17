@@ -414,16 +414,16 @@ Work feature by feature. Each step is independently deployable and has tests bef
 - [x] **Step 5** — Retrieval (`TfIdfBm25Retriever`, `RetrieveKnowledgeUseCase`). Deliverable: `retrieval_results.json` produced; BM25 unit tests pass.
 - [x] **Step 6** — LLM infrastructure (`AnthropicLLMService`, `JsonlLLMCallLogger`, `StubLLMService`, `EnvConfig`). Deliverable: stub call produces a valid JSONL record; graceful failure without API key.
 - [x] **Step 7** — Stage 1 Triage (`buildTriagePrompt`, `TriageTicketsUseCase`). Deliverable: `triage.json`; prompt snapshot test.
-- [ ] **Step 8** — Stage 2 Response drafting (`buildResponsePrompt`, `DraftResponsesUseCase`). Deliverable: `response_drafts.json`.
-- [ ] **Step 9** — Stage 3 Action planning (`buildActionPlanPrompt`, `CreateActionPlanUseCase`). Deliverable: `action_plan.json`; handoff note diversity asserted.
-- [ ] **Step 10** — Stage 4 Grounding validation (`GroundingChecker`, `ValidateGroundingUseCase`). Deliverable: `grounding_validation.json`; known-bad claim caught by tests.
-- [ ] **Step 11** — Finalisation (`FinaliseResultsUseCase`, `WriteArtifactsUseCase`). Deliverable: `final_ticket_outputs.json` with correct `validation_summary`.
-- [ ] **Step 12** — Queue ranking (`RankQueueUseCase`). Deliverable: `queue_ranking.json`.
-- [ ] **Step 13** — Audit log (`ExportAuditLogUseCase`). Deliverable: `audit_log.json`; `llm_calls.jsonl` written incrementally since step 6.
-- [ ] **Step 14** — Pipeline orchestrator + CLI entry (`PipelineOrchestrator`, `src/interface/cli/run.ts`, DI wiring). Deliverable: `npm start` runs the full pipeline.
-- [ ] **Step 15** — Validation command (`src/interface/validation/validate.ts`). Deliverable: `npm run validate` passes on the committed sample outputs.
-- [ ] **Step 16** — `assumptions.md`. Deliverable: confidence/fallback policy documented.
-- [ ] **Step 17** — End-to-end integration test. Deliverable: `pipeline.e2e.test.ts` passes without an API key using `StubLLMService`.
+- [x] **Step 8** — Stage 2 Response drafting (`buildResponsePrompt`, `DraftResponsesUseCase`). Deliverable: `response_drafts.json`.
+- [x] **Step 9** — Stage 3 Action planning (`buildActionPlanPrompt`, `CreateActionPlanUseCase`). Deliverable: `action_plan.json`; handoff note diversity asserted.
+- [x] **Step 10** — Stage 4 Grounding validation (`GroundingChecker`, `ValidateGroundingUseCase`). Deliverable: `grounding_validation.json`; known-bad claim caught by tests.
+- [x] **Step 11** — Finalisation (`FinaliseResultsUseCase`). Deliverable: `final_ticket_outputs.json` with correct `validation_summary`.
+- [x] **Step 12** — Queue ranking (`RankQueueUseCase`). Deliverable: `queue_ranking.json`.
+- [x] **Step 13** — Audit log (`ExportAuditLogUseCase`). Deliverable: `audit_log.json`; `llm_calls.jsonl` written incrementally since step 6.
+- [x] **Step 14** — Pipeline orchestrator + CLI entry (`PipelineOrchestrator`, `src/interface/cli/run.ts`, DI wiring). Deliverable: `npm start` runs the full pipeline.
+- [x] **Step 15** — Validation command (`src/interface/validation/validate.ts`). Deliverable: `npm run validate` checks all 10 requirements from `problem.md`.
+- [x] **Step 16** — `assumptions.md`. Deliverable: confidence/fallback policy documented.
+- [x] **Step 17** — End-to-end integration test. Deliverable: `pipeline.e2e.test.ts` passes without an API key using `StubLLMService`.
 
 ---
 

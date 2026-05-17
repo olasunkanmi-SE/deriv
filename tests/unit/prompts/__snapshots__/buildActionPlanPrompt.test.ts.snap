@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildActionPlanPrompt > matches snapshot 1`] = `
+"You are an internal operations coordinator for a financial trading platform.
+Given a support ticket, its triage result, and a drafted customer response, produce a concrete action plan for internal teams.
+
+## Ticket
+ticket_id: T-1001
+customer_tier: vip
+subject: Withdrawal pending for 3 days
+message: My withdrawal has been pending. When will I receive my funds?
+
+## Triage Context
+category: withdrawal_delay
+urgency: high
+sentiment: negative
+recommended_queue: payments_ops
+resolution_mode: needs_human_review
+reasoning_summary: Customer waiting beyond standard window.
+
+## Drafted Customer Response
+Thank you for reaching out. Your withdrawal is under review.
+
+## Knowledge Base Context
+[payments-001] Withdrawals
+Verified customers have withdrawals reviewed within 24 hours.
+
+## Task
+Produce an internal action plan for resolving this ticket.
+Return ONLY a JSON object with these exact fields:
+
+{
+  "actions": [
+    {
+      "action_id": "A-T-1001-1",
+      "description": "<specific, concrete action for this ticket — not generic>",
+      "owner_queue": "<one of: payments_ops | trust_and_safety | customer_support | trading_ops | account_operations>",
+      "priority": "<one of: P0 | P1 | P2 | P3>",
+      "depends_on": ["<action_id of a prerequisite action, or empty array>"]
+    }
+  ],
+  "handoff_note": "<ticket-specific internal note for the receiving team — reference the customer's actual situation, not generic instructions>"
+}
+
+## Constraints
+- action_id pattern must be A-T-1001-N where N starts at 1
+- owner_queue must be one of: payments_ops, trust_and_safety, customer_support, trading_ops, account_operations
+- priority must be one of: P0, P1, P2, P3 (P0 = critical, P3 = low)
+- depends_on must only reference action_ids defined in this same actions array
+- handoff_note MUST reference specifics of this ticket (customer tier, category, urgency, or message content) — do not write a generic note that could apply to any ticket
+- Do not duplicate actions already completed (e.g. do not say "send acknowledgement" if the response draft already does that)
+- source_chunk_ids should list any chunk IDs from the knowledge base context you relied on"
+`;

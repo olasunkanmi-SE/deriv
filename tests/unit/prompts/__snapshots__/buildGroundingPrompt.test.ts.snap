@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildGroundingPrompt > matches snapshot 1`] = `
+"You are a quality-assurance reviewer for a financial trading platform's support pipeline.
+Your job is to verify that a drafted customer response and internal action plan are grounded in the provided knowledge base and do not contain unsupported claims.
+
+## Ticket
+ticket_id: T-1001
+subject: Withdrawal pending
+message: My withdrawal is pending for 3 days.
+
+## Triage
+category: withdrawal_delay
+urgency: high
+
+## Knowledge Base Context
+[payments-001] Withdrawals
+Verified customers have withdrawals reviewed within 24 hours.
+
+## Drafted Customer Response
+Your withdrawal review takes 24 hours.
+source_chunk_ids cited: payments-001
+contains_policy_claims: true
+
+## Internal Action Plan
+  - [A-T-1001-1] (payments_ops, P1): Escalate to payments_ops.
+handoff_note: Customer T-1001 awaits resolution.
+
+## Task
+Review the response and action plan for grounding issues. For each issue found, produce a validation record.
+Return ONLY a JSON array. Each element has this shape:
+
+{
+  "artifact": "response_drafts.json" | "action_plan.json",
+  "claim": "<the specific claim being evaluated>",
+  "grounded": true | false,
+  "source_type": "knowledge_base" | "ticket" | "derived",
+  "source_chunk_ids": ["<chunk IDs that support this claim, or empty array>"],
+  "issue": "<description of the problem, or null if grounded>",
+  "recommended_fix": "<how to fix the issue, or null if grounded>"
+}
+
+## Grounding rules
+- A claim is grounded if it is directly supported by the knowledge base chunks listed above, by the ticket content itself, or is a reasonable inference (source_type: derived)
+- A claim is NOT grounded if it asserts specific timelines, procedures, or policies not present in any chunk
+- A claim is NOT grounded if it uses source_chunk_ids not present in the Knowledge Base Context above
+- The handoff_note must reference specifics of this ticket — a generic note is not grounded
+- If everything looks correct, return an empty array []"
+`;
