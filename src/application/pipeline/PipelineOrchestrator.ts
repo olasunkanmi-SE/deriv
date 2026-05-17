@@ -44,11 +44,14 @@ export class PipelineOrchestrator {
     this.recordTransition(PipelineState.INIT);
 
     // Stage: Load inputs
+    log('Loading tickets...');
     const loadUseCase = new LoadInputsUseCase(this.deps.ticketRepo);
     const { tickets: rawTickets, nextState: afterLoad } = await loadUseCase.execute(this.state);
     this.advance(afterLoad);
+    log(`Loaded ${rawTickets.length} ticket(s).`);
 
     // Stage: Index knowledge
+    log('Indexing knowledge base...');
     const indexUseCase = new IndexKnowledgeUseCase(
       this.deps.knowledgeRepo,
       this.deps.chunker,
@@ -56,6 +59,7 @@ export class PipelineOrchestrator {
     );
     const { chunks, nextState: afterIndex } = await indexUseCase.execute(this.state);
     this.advance(afterIndex);
+    log(`Indexed ${chunks.length} chunk(s).`);
 
     // Stage: Normalise tickets
     const normaliseUseCase = new NormaliseTicketsUseCase();
@@ -63,6 +67,7 @@ export class PipelineOrchestrator {
     this.advance(afterNorm);
 
     // Stage: Retrieve knowledge
+    log('Running BM25 retrieval...');
     const retrieveUseCase = new RetrieveKnowledgeUseCase(
       this.deps.retriever,
       this.deps.artifactRepo,
@@ -74,8 +79,11 @@ export class PipelineOrchestrator {
       this.state,
     );
     this.advance(afterRetrieval);
+    const lowConfCount = ticketsWithConfidence.filter((t) => t.low_retrieval_confidence).length;
+    log(`Retrieval complete. ${lowConfCount > 0 ? `${lowConfCount} ticket(s) flagged low-confidence.` : 'All tickets have sufficient retrieval confidence.'}`);
 
     // Stage 1 LLM: Triage
+    log(`Stage 1/4 — Triage (${ticketsWithConfidence.length} LLM call(s))...`);
     const triageUseCase = new TriageTicketsUseCase(this.deps.llm, this.deps.artifactRepo);
     const { triageResults, nextState: afterTriage } = await triageUseCase.execute(
       ticketsWithConfidence,
@@ -85,8 +93,10 @@ export class PipelineOrchestrator {
     );
     this.advance(afterTriage);
     this.llmCallCount += ticketsWithConfidence.length;
+    log('Stage 1/4 — Triage complete. → artifacts/triage.json');
 
     // Stage 2 LLM: Response drafting
+    log(`Stage 2/4 — Response drafting (${ticketsWithConfidence.length} LLM call(s))...`);
     const draftUseCase = new DraftResponsesUseCase(this.deps.llm, this.deps.artifactRepo);
     const { drafts, nextState: afterDraft } = await draftUseCase.execute(
       ticketsWithConfidence,
@@ -97,8 +107,10 @@ export class PipelineOrchestrator {
     );
     this.advance(afterDraft);
     this.llmCallCount += drafts.length;
+    log('Stage 2/4 — Response drafting complete. → artifacts/response_drafts.json');
 
     // Stage 3 LLM: Action planning
+    log(`Stage 3/4 — Action planning (${ticketsWithConfidence.length} LLM call(s))...`);
     const actionUseCase = new CreateActionPlanUseCase(this.deps.llm, this.deps.artifactRepo);
     const { actionPlans, nextState: afterAction } = await actionUseCase.execute(
       ticketsWithConfidence,
@@ -110,8 +122,10 @@ export class PipelineOrchestrator {
     );
     this.advance(afterAction);
     this.llmCallCount += actionPlans.length;
+    log('Stage 3/4 — Action planning complete. → artifacts/action_plan.json');
 
     // Stage 4 LLM: Grounding validation
+    log(`Stage 4/4 — Grounding validation (${ticketsWithConfidence.length} LLM call(s))...`);
     const groundingUseCase = new ValidateGroundingUseCase(this.deps.llm, this.deps.artifactRepo);
     const { validations, nextState: afterGrounding } = await groundingUseCase.execute(
       ticketsWithConfidence,
@@ -124,8 +138,11 @@ export class PipelineOrchestrator {
     );
     this.advance(afterGrounding);
     this.llmCallCount += ticketsWithConfidence.length;
+    const issues = validations.filter((v) => !v.grounded).length;
+    log(`Stage 4/4 — Grounding validation complete. ${issues} issue(s) found. → artifacts/grounding_validation.json`);
 
     // Finalise
+    log('Finalising results...');
     const finaliseUseCase = new FinaliseResultsUseCase(this.deps.artifactRepo);
     const { outputs, nextState: afterFinalise } = await finaliseUseCase.execute(
       ticketsWithConfidence,
@@ -136,6 +153,7 @@ export class PipelineOrchestrator {
       this.state,
     );
     this.advance(afterFinalise);
+    log('→ artifacts/final_ticket_outputs.json');
 
     // Queue ranking
     const rankUseCase = new RankQueueUseCase(this.deps.artifactRepo);
@@ -145,6 +163,7 @@ export class PipelineOrchestrator {
       this.state,
     );
     this.advance(afterRank);
+    log('→ artifacts/queue_ranking.json');
 
     // Audit log
     const auditUseCase = new ExportAuditLogUseCase(this.deps.artifactRepo, this.deps.clock);
@@ -156,6 +175,7 @@ export class PipelineOrchestrator {
       this.state,
     );
     this.advance(afterAudit);
+    log('→ artifacts/audit_log.json');
   }
 
   getState(): PipelineState {
@@ -174,4 +194,8 @@ export class PipelineOrchestrator {
   private recordTransition(state: PipelineState): void {
     this.transitions.push({ state, timestamp: this.deps.clock.now() });
   }
+}
+
+function log(msg: string): void {
+  console.log(`[Pipeline] ${msg}`);
 }

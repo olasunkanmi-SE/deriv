@@ -57,6 +57,7 @@ export class CreateActionPlanUseCase {
         .map((id) => chunkMap.get(id))
         .filter((c): c is KnowledgeChunk => c !== undefined);
 
+      process.stdout.write(`  Planning actions for ${ticket.ticket_id}...`);
       const prompt = buildActionPlanPrompt(ticket, triage, draft, selectedChunks);
       const raw = await this.llm.complete({
         prompt,
@@ -73,7 +74,9 @@ export class CreateActionPlanUseCase {
         outputArtifact: 'artifacts/action_plan.json',
       });
 
-      actionPlans.push(this.parseAndValidate(raw, ticket.ticket_id, selectedChunkIds));
+      const plan = this.parseAndValidate(raw, ticket.ticket_id, selectedChunkIds);
+      actionPlans.push(plan);
+      process.stdout.write(` done (${plan.actions.length} action(s))\n`);
     }
 
     await this.artifactRepo.write('action_plan.json', actionPlans);

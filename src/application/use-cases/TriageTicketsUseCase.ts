@@ -42,6 +42,7 @@ export class TriageTicketsUseCase {
         .map((id) => chunkMap.get(id))
         .filter((c): c is KnowledgeChunk => c !== undefined);
 
+      process.stdout.write(`  Triaging ${ticket.ticket_id}...`);
       const prompt = buildTriagePrompt(ticket, selectedChunks);
       const raw = await this.llm.complete({
         prompt,
@@ -58,6 +59,7 @@ export class TriageTicketsUseCase {
 
       const triage = this.parseAndValidate(raw, ticket, selectedChunkIds);
       triageResults.push(triage);
+      process.stdout.write(` ${triage.category} / ${triage.urgency}\n`);
     }
 
     await this.artifactRepo.write('triage.json', triageResults);

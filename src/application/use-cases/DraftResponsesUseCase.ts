@@ -46,6 +46,7 @@ export class DraftResponsesUseCase {
         .map((id) => chunkMap.get(id))
         .filter((c): c is KnowledgeChunk => c !== undefined);
 
+      process.stdout.write(`  Drafting response for ${ticket.ticket_id}...`);
       const prompt = buildResponsePrompt(ticket, triage, selectedChunks);
       const raw = await this.llm.complete({
         prompt,
@@ -61,7 +62,9 @@ export class DraftResponsesUseCase {
         outputArtifact: 'artifacts/response_drafts.json',
       });
 
-      drafts.push(this.parseAndValidate(raw, ticket.ticket_id, selectedChunkIds));
+      const draft = this.parseAndValidate(raw, ticket.ticket_id, selectedChunkIds);
+      drafts.push(draft);
+      process.stdout.write(` done (${draft.tone})\n`);
     }
 
     await this.artifactRepo.write('response_drafts.json', drafts);

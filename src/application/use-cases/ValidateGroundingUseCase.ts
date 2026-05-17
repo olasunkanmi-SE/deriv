@@ -56,6 +56,7 @@ export class ValidateGroundingUseCase {
         .map((id) => chunkMap.get(id))
         .filter((c): c is KnowledgeChunk => c !== undefined);
 
+      process.stdout.write(`  Validating grounding for ${ticket.ticket_id}...`);
       const prompt = buildGroundingPrompt(ticket, triage, draft, plan, selectedChunks);
       const raw = await this.llm.complete({
         prompt,
@@ -73,6 +74,8 @@ export class ValidateGroundingUseCase {
 
       const parsed = this.parseLLMValidations(raw, ticket.ticket_id);
       llmResults.push(...parsed);
+      const issues = parsed.filter((v) => !v.grounded).length;
+      process.stdout.write(` done${issues > 0 ? ` (${issues} issue(s))` : ''}\n`);
     }
 
     const allValidations = [...deterministicResults, ...llmResults];
