@@ -1,0 +1,181 @@
+[
+  {
+    "ticket_id": "T-1001",
+    "actions": [
+      {
+        "action_id": "A-T-1001-1",
+        "description": "Locate and review the specific withdrawal transaction for this customer in the payments system. Confirm the current hold status, identify the exact reason for the delay (e.g., enhanced checks, payment rail issue, or account review flag), and determine whether any manual intervention is required to release the funds.",
+        "owner_queue": "payments_ops",
+        "priority": "P2",
+        "depends_on": []
+      },
+      {
+        "action_id": "A-T-1001-2",
+        "description": "Cross-check the customer's account for any active security review or restriction flags that may be silently blocking the withdrawal. Per security-001 policy, if the account is under a security review the customer should have been notified by email — verify that this notification was sent and confirm no open positions or funds are at risk.",
+        "owner_queue": "trust_and_safety",
+        "priority": "P2",
+        "depends_on": [
+          "A-T-1001-1"
+        ]
+      },
+      {
+        "action_id": "A-T-1001-3",
+        "description": "Once the root cause is confirmed by payments_ops and trust_and_safety, send the customer a specific follow-up update identifying the reason for the delay and the next expected action (e.g., estimated release window or required customer steps). Do not guarantee a specific payout date unless the payment provider has confirmed processing, per payments-002 policy.",
+        "owner_queue": "customer_support",
+        "priority": "P2",
+        "depends_on": [
+          "A-T-1001-1",
+          "A-T-1001-2"
+        ]
+      }
+    ],
+    "handoff_note": "Ticket T-1001 — Standard-tier customer reporting a withdrawal pending for 3 days. Customer completed identity verification last month, so KYC is not the blocker. Urgency is medium with negative sentiment. The drafted response has already been sent acknowledging the delay and flagging the case to payments ops. Your immediate task is to pull up the specific pending withdrawal in the payments system and determine whether this is a payment rail delay, an enhanced check hold, or an account-level restriction. If a security review is active on this account, confirm the customer was notified by email per security-001 policy. The 3-day mark aligns with the upper boundary of our standard processing window (payments-001), so prompt investigation is warranted to avoid further customer dissatisfaction. Do not communicate a specific release date to the customer unless the payment provider confirms processing."
+  },
+  {
+    "ticket_id": "T-1002",
+    "actions": [
+      {
+        "action_id": "A-T-1002-1",
+        "description": "Immediately retrieve and review the security event log for this VIP customer's account to identify the specific trigger(s) that caused the lock (e.g. suspicious login, unrecognised device, anomalous payment activity). Determine whether the lock was system-generated or manually applied and assess whether any indicators suggest genuine unauthorised access versus a false positive.",
+        "owner_queue": "trust_and_safety",
+        "priority": "P0",
+        "depends_on": []
+      },
+      {
+        "action_id": "A-T-1002-2",
+        "description": "Cross-reference the customer's open positions with current market conditions and margin levels to assess whether any positions are at risk of a margin call during the security review window. Flag to trading_ops if any position is approaching margin thresholds that could trigger forced liquidation before the review is resolved.",
+        "owner_queue": "trading_ops",
+        "priority": "P0",
+        "depends_on": []
+      },
+      {
+        "action_id": "A-T-1002-3",
+        "description": "Expedite the security review for this VIP customer. Given the open positions and critical urgency, attempt to compress the standard 1–3 business day review timeline. Contact the customer directly via verified contact details on file to confirm identity and gather any additional verification needed to clear the review swiftly.",
+        "owner_queue": "trust_and_safety",
+        "priority": "P0",
+        "depends_on": [
+          "A-T-1002-1"
+        ]
+      },
+      {
+        "action_id": "A-T-1002-4",
+        "description": "If A-T-1002-2 identifies any open positions approaching margin call thresholds, coordinate with trust_and_safety to evaluate whether a limited, supervised trading access exception can be granted for position management only, or whether an internal risk decision regarding those positions is required per the margin call policy.",
+        "owner_queue": "trading_ops",
+        "priority": "P1",
+        "depends_on": [
+          "A-T-1002-2",
+          "A-T-1002-3"
+        ]
+      },
+      {
+        "action_id": "A-T-1002-5",
+        "description": "Once trust_and_safety completes the review and a resolution outcome is reached (account cleared or further action required), notify the customer directly with a personalised update on account status and, if cleared, confirm restoration of full access including trading, deposits, and withdrawals.",
+        "owner_queue": "customer_support",
+        "priority": "P1",
+        "depends_on": [
+          "A-T-1002-3"
+        ]
+      }
+    ],
+    "handoff_note": "T-1002 — VIP customer locked out due to a security review trigger with confirmed open trading positions at risk. This is a P0 case combining account_security and time-sensitive trading exposure. Trust & Safety must immediately identify the lock trigger from the security event log and expedite the review beyond the standard 1–3 business day window given the VIP tier and position risk. Trading Ops must concurrently check whether any open positions are near margin thresholds, as the customer cannot self-manage during the lockout period. The drafted customer response has already been sent, so do NOT send a second acknowledgement — next customer contact should be a direct, personalised update once the review status is known. Do not apply forced liquidation unless a separate risk decision mandates it per platform margin policy."
+  },
+  {
+    "ticket_id": "T-1003",
+    "actions": [
+      {
+        "action_id": "A-T-1003-1",
+        "description": "Verify the 24-hour dispute eligibility window by checking the timestamp of the trade the customer claims to have closed at a loss. Confirm whether the trade execution time falls within the 24-hour dispute submission window per trading_policies-002.",
+        "owner_queue": "customer_support",
+        "priority": "P1",
+        "depends_on": []
+      },
+      {
+        "action_id": "A-T-1003-2",
+        "description": "Await customer reply containing trade details (trade ID, execution time, and description of alleged error). Once received, validate that the provided trade ID exists in the system and matches the customer's account.",
+        "owner_queue": "customer_support",
+        "priority": "P2",
+        "depends_on": [
+          "A-T-1003-1"
+        ]
+      },
+      {
+        "action_id": "A-T-1003-3",
+        "description": "If the trade falls within the 24-hour window and the customer provides the required trade details, escalate the case to trading_ops for formal dispute investigation. Include trade ID, execution timestamp, customer's stated reason, and customer tier (standard) in the escalation handoff. If the 24-hour window has already lapsed, close the dispute as ineligible and notify the customer.",
+        "owner_queue": "trading_ops",
+        "priority": "P2",
+        "depends_on": [
+          "A-T-1003-2"
+        ]
+      },
+      {
+        "action_id": "A-T-1003-4",
+        "description": "Trading ops to investigate whether the trade closure was the result of a platform error or a voluntary customer action. Review execution logs, order history, and any system anomalies around the time of the trade. Determine eligibility for reversal, credit, or no action, and document outcome in the ticket.",
+        "owner_queue": "trading_ops",
+        "priority": "P2",
+        "depends_on": [
+          "A-T-1003-3"
+        ]
+      },
+      {
+        "action_id": "A-T-1003-5",
+        "description": "Communicate the trading_ops investigation outcome to the customer via the support ticket. If the dispute is denied (e.g., voluntary closure confirmed), provide a clear explanation referencing platform policy. Do not offer compensation or reversal unless explicitly authorized by trading_ops.",
+        "owner_queue": "customer_support",
+        "priority": "P3",
+        "depends_on": [
+          "A-T-1003-4"
+        ]
+      }
+    ],
+    "handoff_note": "T-1003 — Standard-tier customer is requesting a reversal of a trade they voluntarily closed at a loss. Per trading_policies-002, trade reversals can only be considered if a platform error is involved and the dispute is submitted within 24 hours of execution. The drafted response has already been sent informing the customer of this policy and requesting trade details (trade ID, execution time, description of error). Trading ops should be prepared to receive this escalation once the customer responds. Key risk: customer's framing ('I made a mistake') suggests this may be a voluntary closure rather than a platform error, which would make the dispute ineligible. Urgency is medium — 24-hour clock may already be ticking. Do not promise any outcome or compensation at any stage prior to trading_ops determination."
+  },
+  {
+    "ticket_id": "T-1004",
+    "actions": [
+      {
+        "action_id": "A-T-1004-1",
+        "description": "Immediately flag and queue ticket T-1004 for Trust and Safety review. Pull login history, device fingerprints, IP addresses, and any password reset request logs for this customer's account to determine whether an unauthorised access attempt occurred or is ongoing.",
+        "owner_queue": "trust_and_safety",
+        "priority": "P0",
+        "depends_on": []
+      },
+      {
+        "action_id": "A-T-1004-2",
+        "description": "Apply a temporary protective restriction to the customer's account to prevent trading, deposits, and withdrawals while the security review is in progress. Ensure open positions are maintained and not forcibly closed per standard security review policy.",
+        "owner_queue": "account_operations",
+        "priority": "P0",
+        "depends_on": [
+          "A-T-1004-1"
+        ]
+      },
+      {
+        "action_id": "A-T-1004-3",
+        "description": "Verify whether the password reset email reported by the customer was triggered by an internal system event or an external actor. Cross-reference the timestamp of the reset request against known login attempts and device activity on this account.",
+        "owner_queue": "trust_and_safety",
+        "priority": "P0",
+        "depends_on": [
+          "A-T-1004-1"
+        ]
+      },
+      {
+        "action_id": "A-T-1004-4",
+        "description": "Send the drafted customer response (already prepared) via the support channel, confirming the incident has been escalated and advising on the 1–3 business day review window. Do not request any passwords, PINs, or OTPs from the customer at any point.",
+        "owner_queue": "customer_support",
+        "priority": "P1",
+        "depends_on": [
+          "A-T-1004-1"
+        ]
+      },
+      {
+        "action_id": "A-T-1004-5",
+        "description": "Following completion of the security review, confirm findings internally and determine whether the account restriction should be lifted or escalated further. If unauthorised access is confirmed, initiate full account recovery procedures and notify the customer of outcomes and any required next steps.",
+        "owner_queue": "trust_and_safety",
+        "priority": "P1",
+        "depends_on": [
+          "A-T-1004-2",
+          "A-T-1004-3"
+        ]
+      }
+    ],
+    "handoff_note": "Ticket T-1004 is a critical-urgency account security incident from a standard-tier customer who received an unsolicited password reset email and suspects unauthorised account access. This is a potential active breach. Trust and Safety must immediately audit login history, device activity, and the origin of the password reset request. Account Operations should apply a protective account restriction in parallel to prevent any trading or fund movement while the review is underway — open positions must be preserved. The customer has been advised via the drafted response that the review takes 1–3 business days and that their account may be temporarily restricted. Do not treat this as a routine query; the unsolicited reset email is a concrete indicator of a possible external compromise attempt and requires full investigation under security-001 and security-002 protocols."
+  }
+]

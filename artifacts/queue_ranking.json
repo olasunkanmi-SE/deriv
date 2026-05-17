@@ -1,0 +1,38 @@
+[
+  {
+    "ticket_id": "T-1002",
+    "rank": 1,
+    "score": 59,
+    "recommended_queue": "trust_and_safety",
+    "urgency": "critical",
+    "customer_tier": "vip",
+    "category": "account_security"
+  },
+  {
+    "ticket_id": "T-1004",
+    "rank": 2,
+    "score": 48,
+    "recommended_queue": "trust_and_safety",
+    "urgency": "critical",
+    "customer_tier": "standard",
+    "category": "account_access"
+  },
+  {
+    "ticket_id": "T-1001",
+    "rank": 3,
+    "score": 30,
+    "recommended_queue": "payments_ops",
+    "urgency": "medium",
+    "customer_tier": "standard",
+    "category": "withdrawal_delay"
+  },
+  {
+    "ticket_id": "T-1003",
+    "rank": 4,
+    "score": 26,
+    "recommended_queue": "trading_ops",
+    "urgency": "medium",
+    "customer_tier": "standard",
+    "category": "trade_dispute"
+  }
+]

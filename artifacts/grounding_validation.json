@@ -1,0 +1,491 @@
+[
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk payments-001 (Withdrawals)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk payments-002 (Additional checks)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk security-001 (Account security review)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk support_sla-001 (Support prioritisation)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "support_sla-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk trading_policies-004 (Position management)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-004"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk trading_policies-002 (Trade dispute process)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1004",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk security-002 (Immediate actions for customers)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1004",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk security-001 (Account security review)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1004",
+    "artifact": "response_drafts.json",
+    "claim": "Response cites chunk security-004 (Password reset)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-004"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "Withdrawals for verified customers are typically reviewed within 24 hours of submission",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "Delays can occur for a number of reasons — including enhanced checks, payment rail availability, or if the account is currently under review",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "We generally ask customers to allow up to 3 business days before contacting support",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "If any additional verification or action is required on your part, you would have received instructions there",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "We're unable to guarantee a specific resolution time at this stage",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "response_drafts.json",
+    "claim": "Your case is being looked into as a priority",
+    "grounded": false,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [],
+    "issue": "No knowledge base chunk supports characterising this case as a 'priority'. The triage assigns medium urgency and no knowledge base policy establishes that 3-day withdrawal delays are handled as priority cases.",
+    "recommended_fix": "Replace 'as a priority' with a neutral phrase such as 'as soon as possible' or 'promptly' to avoid an unsupported service-level commitment."
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "action_plan.json",
+    "claim": "Check for holds triggered by enhanced checks, payment rail issues, or an active account security review",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-001",
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "action_plan.json",
+    "claim": "If the delay is due to an active account security or fraud review, coordinate with trust_and_safety to determine review status and expected resolution window",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "action_plan.json",
+    "claim": "A security review typically takes 1–3 business days (implied by the action plan referencing security-001 scope)",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "action_plan.json",
+    "claim": "Relay a concrete status update to the customer via the ticket. If the withdrawal can be processed immediately, confirm processing. If a further delay is expected or additional action is required from the customer, communicate this clearly with next steps and a realistic timeframe.",
+    "grounded": true,
+    "source_type": "derived",
+    "source_chunk_ids": [
+      "payments-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "action_plan.json",
+    "claim": "Standard-tier customer",
+    "grounded": false,
+    "source_type": "ticket",
+    "source_chunk_ids": [],
+    "issue": "The ticket and triage do not contain any information about the customer's account tier. Asserting 'Standard-tier' is unsupported and could misdirect the investigation if tier-specific rules apply.",
+    "recommended_fix": "Remove the tier designation from the handoff note, or replace it with a neutral reference such as 'customer tier unconfirmed — verify in account system' to avoid acting on an unverified assumption."
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "action_plan.json",
+    "claim": "No P0 escalation required at this stage",
+    "grounded": true,
+    "source_type": "derived",
+    "source_chunk_ids": [],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1001",
+    "artifact": "action_plan.json",
+    "claim": "Do NOT guarantee a payout time per KB payments-002 unless the payment provider confirms processing",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "payments-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "Because you are a VIP customer and this involves an account restriction, your case is being treated as high priority.",
+    "grounded": false,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "support_sla-001"
+    ],
+    "issue": "The knowledge base (support_sla-001) states that cases involving account restrictions are treated as high-priority 'regardless of customer tier' — not specifically because this customer is a VIP. Additionally, there is no information in the ticket or knowledge base confirming that this customer is a VIP. The claim introduces an unverified assertion about the customer's tier.",
+    "recommended_fix": "Remove the VIP-specific claim. Instead, state: 'Because this involves an account restriction, your case is being treated as high priority regardless of your account tier, in line with our support policies.' Do not assert VIP status unless it is confirmed in the ticket or customer record."
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "action_plan.json",
+    "claim": "This is a P0 escalation for a VIP customer (T-1002) whose account has been locked...",
+    "grounded": false,
+    "source_type": "ticket",
+    "source_chunk_ids": [],
+    "issue": "The ticket does not contain any information identifying this customer as a VIP. The VIP designation is asserted in both the handoff note and internal action plan without any supporting evidence in the ticket content or knowledge base.",
+    "recommended_fix": "Remove or qualify the VIP designation. Replace with 'high-priority customer case' or note that VIP status should be verified against the customer record before being used to justify escalation tier. The prioritisation rationale should rest on the account restriction and open positions, which are supported by the ticket and support_sla-001."
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "action_plan.json",
+    "claim": "A supervised or partial account access exception can be granted to allow the VIP customer to manage or close open positions while the full security review is still in progress, subject to trust_and_safety sign-off.",
+    "grounded": false,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [],
+    "issue": "No knowledge base chunk supports the existence of a 'supervised or partial account access exception' mechanism during a security review. The knowledge base (security-001) states that during a security review the customer 'cannot trade, deposit, or withdraw' with no mention of exceptions or partial access grants.",
+    "recommended_fix": "Remove or heavily caveat action A-T-1002-4. If such an exception process exists, it should be referenced against an appropriate internal policy chunk. As written, it contradicts the explicit restriction described in security-001. If it is a discretionary escalation path, it should be flagged as outside documented policy and require explicit senior sign-off, not presented as a standard option."
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "The drafted customer response has already been sent acknowledging the restriction and advising on position responsibility, so no repeat acknowledgement is needed.",
+    "grounded": false,
+    "source_type": "ticket",
+    "source_chunk_ids": [],
+    "issue": "This claim appears in the handoff note (part of action_plan.json). There is no evidence in the ticket or any provided context that the drafted response has already been sent to the customer. The response is presented as a draft under review, not as a delivered communication.",
+    "recommended_fix": "Remove the assertion that the response has already been sent. The handoff note should reflect the actual state: the response is a draft pending QA review. Internal teams should not act on the assumption that the customer has already received this communication until sending is confirmed."
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "unusual activity such as a new device, login location, or other account signals",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "your open positions are maintained during a standard security review and will not be forcibly closed as a result of the restriction itself",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "you remain responsible for managing your positions, including margin requirements",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-004"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "Security reviews typically take 1–3 business days to complete",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "During this period, trading, deposits, and withdrawals will be unavailable on your account",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "artifact": "response_drafts.json",
+    "claim": "a notification about the restriction should have been sent there [to the customer's email]",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "security-001"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "response_drafts.json",
+    "claim": "Trade reversals are not something we're able to process at the initial support stage.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "response_drafts.json",
+    "claim": "Disputes must be submitted within 24 hours of the trade execution in order to be considered — late submissions will not be reviewed.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "response_drafts.json",
+    "claim": "If the trade was closed as a result of your own decision — rather than a platform error — it would not qualify for a dispute review.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "response_drafts.json",
+    "claim": "Our trading operations team is the sole authority in determining the outcome of any dispute after investigation.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "response_drafts.json",
+    "claim": "We are not able to promise trade reversal, credit, or compensation at this stage.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "action_plan.json",
+    "claim": "Customer is standard tier requesting reversal of a self-reported losing trade.",
+    "grounded": false,
+    "source_type": "ticket",
+    "source_chunk_ids": [],
+    "issue": "The ticket does not mention the customer's tier (e.g., 'standard tier'). No knowledge base chunk or ticket content establishes this customer's tier classification.",
+    "recommended_fix": "Remove the reference to 'standard tier' or replace it with a factual description sourced from the ticket, such as 'customer has not identified their account tier' or omit tier classification entirely until verified."
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "action_plan.json",
+    "claim": "Ticket T-1003 — Standard-tier customer submitted a trade dispute (medium urgency, negative sentiment).",
+    "grounded": false,
+    "source_type": "ticket",
+    "source_chunk_ids": [],
+    "issue": "'Standard-tier' is not supported by the ticket or any knowledge base chunk. 'Negative sentiment' is a reasonable inference from the ticket content but 'standard tier' is an unsupported assertion that could misdirect trading_ops prioritization.",
+    "recommended_fix": "Remove 'standard-tier' from the handoff note. Sentiment inference is acceptable as derived, but tier must be omitted or marked as unverified."
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "action_plan.json",
+    "claim": "If customer responds within the 24-hour window, validate that the submission is within the allowed timeframe before escalating to trading_ops.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "action_plan.json",
+    "claim": "If the customer explicitly states the closure was their own decision rather than a platform error, close the dispute as ineligible per policy and notify customer.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "artifact": "action_plan.json",
+    "claim": "Do not communicate any outcome, reversal decision, or compensation promise to the customer until investigation is complete.",
+    "grounded": true,
+    "source_type": "knowledge_base",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ],
+    "issue": null,
+    "recommended_fix": null
+  }
+]

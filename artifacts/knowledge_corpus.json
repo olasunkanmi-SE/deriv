@@ -1,0 +1,146 @@
+[
+  {
+    "document_id": "payments",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/payments.md",
+    "chunk_id": "payments-001",
+    "section_title": "Withdrawals",
+    "text": "# Withdrawals\n\nVerified customers usually have withdrawals reviewed within 24 hours of submission. Delays may occur if enhanced checks are required, payment rails are unavailable, or the account is currently under review.\n\nCustomers should allow up to 3 business days before contacting support. Withdrawal processing times vary by payment method and may be longer during high-volume periods.",
+    "character_count": 391,
+    "content_hash": "e8d31937537ddc6ea59120cd47269edd1614f7459eba6a50bbde8794f2ec39a3"
+  },
+  {
+    "document_id": "payments",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/payments.md",
+    "chunk_id": "payments-002",
+    "section_title": "Additional checks",
+    "text": "## Additional checks\n\nSupport agents must not guarantee payout timing unless the payment provider has confirmed processing. If a payment is held pending additional verification, the customer will be notified by email with instructions for completing the verification steps.",
+    "character_count": 273,
+    "content_hash": "9ecb5df87178519f9b6741b740eebebdfe689a393c5d4071266c059bdf75603a"
+  },
+  {
+    "document_id": "payments",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/payments.md",
+    "chunk_id": "payments-003",
+    "section_title": "Refunds and reversals",
+    "text": "## Refunds and reversals\n\nDeposits that cannot be credited to an account may be returned to the original payment method within 5–10 business days, subject to payment provider processing times. Refunds are not available for executed trades.",
+    "character_count": 239,
+    "content_hash": "8a071c4534707e8d6c4801472e4203f818a560ce26393a10d3549bd29a3f6cf3"
+  },
+  {
+    "document_id": "payments",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/payments.md",
+    "chunk_id": "payments-004",
+    "section_title": "Payment methods",
+    "text": "## Payment methods\n\nSupported withdrawal methods include bank transfer, credit card reversal, and approved e-wallets. Withdrawal methods are restricted to the same method used for the matching deposit where required by compliance policy.",
+    "character_count": 237,
+    "content_hash": "633f841e03b39729db9ae6db80be93d3ec4116223753bbd5bb224a0d92f57449"
+  },
+  {
+    "document_id": "security",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/security.md",
+    "chunk_id": "security-001",
+    "section_title": "Account security review",
+    "text": "# Account security review\n\nAccounts may be temporarily restricted if suspicious login, device, password, or payment activity is detected. This restriction is a protective measure and does not indicate permanent closure. Customers are notified by email when a restriction is applied.\n\nA security review typically takes 1–3 business days. During this period the customer cannot trade, deposit, or withdraw. Open positions are maintained and will not be forcibly closed during a standard security review unless mandated by a separate risk decision.",
+    "character_count": 545,
+    "content_hash": "0a4b0e92511871346671eed1856598c43d93c911341a54042cc18a23e9de90bb"
+  },
+  {
+    "document_id": "security",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/security.md",
+    "chunk_id": "security-002",
+    "section_title": "Immediate actions for customers",
+    "text": "## Immediate actions for customers\n\nCustomers who suspect unauthorised access should reset their password immediately, enable two-factor authentication if not already active, and contact support to report the incident. Support will log the report and escalate to the Trust and Safety team.\n\nDo not advise customers to share passwords, PINs, or one-time codes with support agents. Support agents will never ask for this information.",
+    "character_count": 431,
+    "content_hash": "1bb8f38a145a060b72154a8fac020dbdbe56beef5f6d4f7ca25f5f257bf6f79a"
+  },
+  {
+    "document_id": "security",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/security.md",
+    "chunk_id": "security-003",
+    "section_title": "Two-factor authentication",
+    "text": "## Two-factor authentication\n\nTwo-factor authentication (2FA) adds a second layer of verification at login. Customers can enable 2FA via the account settings page. Supported methods include authenticator apps and SMS codes. Recovery codes should be stored securely.",
+    "character_count": 265,
+    "content_hash": "5094981c53f376dcb11a89e12611c3565c5e143be43918c371a7410f6fbfda0d"
+  },
+  {
+    "document_id": "security",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/security.md",
+    "chunk_id": "security-004",
+    "section_title": "Password reset",
+    "text": "## Password reset\n\nPassword resets are initiated from the login page. A reset link is sent to the registered email address. If the customer no longer has access to the registered email, they must contact support to initiate an identity verification before the email can be changed.",
+    "character_count": 281,
+    "content_hash": "e8f96f470f3d094a3e1df732dcebca877fc4fbc94530182b8b05df4726970e87"
+  },
+  {
+    "document_id": "support_sla",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/support_sla.md",
+    "chunk_id": "support_sla-001",
+    "section_title": "Support prioritisation",
+    "text": "# Support prioritisation\n\nVIP and security-related cases should be prioritised ahead of general informational requests. Cases involving account restrictions, suspected unauthorised access, or locked accounts are treated as high-priority regardless of customer tier.",
+    "character_count": 265,
+    "content_hash": "19cb170b4a16eefcfc0255556fa6dd474719370c589f1c395ede619cbff583ab"
+  },
+  {
+    "document_id": "support_sla",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/support_sla.md",
+    "chunk_id": "support_sla-002",
+    "section_title": "Response time targets",
+    "text": "## Response time targets\n\n| Priority | Target first response |\n|---|---|\n| Critical (P0) | Within 1 hour |\n| High (P1) | Within 4 hours |\n| Medium (P2) | Within 24 hours |\n| Low (P3) | Within 72 hours |\n\nResponse time targets are measured from initial ticket submission during business hours. Target times are not guaranteed and may be affected by ticket volume.",
+    "character_count": 362,
+    "content_hash": "a20487258ecdedf0b90ae48844d39738d24b990d155a97826446569b2e7d648f"
+  },
+  {
+    "document_id": "support_sla",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/support_sla.md",
+    "chunk_id": "support_sla-003",
+    "section_title": "Escalation paths",
+    "text": "## Escalation paths\n\nPayments and withdrawal issues that exceed the standard 3-business-day window should be escalated to the payments operations queue. Security incidents should be escalated immediately to the trust and safety team. Trade disputes must be routed to the trading operations queue.",
+    "character_count": 296,
+    "content_hash": "a87eeb4122532e5dade405371e45a2b22bc16e3b0b40d1932fdd292b1d961c6b"
+  },
+  {
+    "document_id": "support_sla",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/support_sla.md",
+    "chunk_id": "support_sla-004",
+    "section_title": "Customer communication standards",
+    "text": "## Customer communication standards\n\nAll customer-facing responses must be clear, empathetic, and grounded in documented policy. Agents must not speculate on outcomes, promise resolutions, or provide timelines that have not been confirmed by the relevant operations team.\n\nSupport agents must not provide financial advice, predict market movements, or recommend specific trading strategies.",
+    "character_count": 390,
+    "content_hash": "985ff13b1ca9b971382627af79b535c706bcd6227dd4895ec13fdf2c6bb6a34c"
+  },
+  {
+    "document_id": "trading_policies",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/trading_policies.md",
+    "chunk_id": "trading_policies-001",
+    "section_title": "Trade finality",
+    "text": "# Trade finality\n\nExecuted trades are final and cannot be reversed unless there is a confirmed platform error or an approved operational adjustment authorised by the trading operations team.\n\nA confirmed platform error means a documented technical fault on the platform side — such as incorrect pricing data, a system outage during execution, or a settlement calculation error — that is verified by the trading operations team after investigation.",
+    "character_count": 447,
+    "content_hash": "0dfb4861ff88b0b3d7ce2d551d516b11b44a2464f32d8c3478dedb42e3aab2af"
+  },
+  {
+    "document_id": "trading_policies",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/trading_policies.md",
+    "chunk_id": "trading_policies-002",
+    "section_title": "Trade dispute process",
+    "text": "## Trade dispute process\n\nCustomers who believe a trade was executed incorrectly due to a platform error may submit a dispute through the support channel. The dispute must be submitted within 24 hours of the trade execution. Late disputes will not be reviewed.\n\nSupport agents must not promise trade reversal, credit, or compensation during initial contact. All trade dispute outcomes are determined solely by the trading operations team after investigation.",
+    "character_count": 458,
+    "content_hash": "1f65007d4a1751c7f4f3dbc8fd7a5db792d94f270748e661c75f90a6e52cacaf"
+  },
+  {
+    "document_id": "trading_policies",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/trading_policies.md",
+    "chunk_id": "trading_policies-003",
+    "section_title": "Market conditions",
+    "text": "## Market conditions\n\nPlatform pricing reflects live market data. Spreads, slippage, and execution delays during periods of high volatility or low liquidity are normal market conditions and are not grounds for trade reversal.",
+    "character_count": 225,
+    "content_hash": "607f34ff46ec8624d99aa1cad8437119580a8c79b4f84507b4bc5a5a109d458d"
+  },
+  {
+    "document_id": "trading_policies",
+    "source_file": "/Users/ola/Documents/deriv/knowledge_base/trading_policies.md",
+    "chunk_id": "trading_policies-004",
+    "section_title": "Position management",
+    "text": "## Position management\n\nCustomers are responsible for managing their own open positions, including setting stop-loss orders. Forced liquidation may occur if margin requirements are not met and is applied according to the platform's margin call policy.",
+    "character_count": 251,
+    "content_hash": "eba073a83e2ce85dbe71c85b6c55c8564d371243a74ffe8e49b016b269348759"
+  }
+]

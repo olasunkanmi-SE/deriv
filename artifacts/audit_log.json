@@ -1,0 +1,57 @@
+{
+  "pipeline_run_at": "2026-05-17T12:08:36.876Z",
+  "state_transitions": [
+    {
+      "state": "INIT",
+      "timestamp": "2026-05-17T12:06:10.381Z"
+    },
+    {
+      "state": "INPUTS_LOADED",
+      "timestamp": "2026-05-17T12:06:10.388Z"
+    },
+    {
+      "state": "KNOWLEDGE_INDEXED",
+      "timestamp": "2026-05-17T12:06:10.391Z"
+    },
+    {
+      "state": "TICKETS_NORMALISED",
+      "timestamp": "2026-05-17T12:06:10.391Z"
+    },
+    {
+      "state": "RETRIEVAL_COMPLETE",
+      "timestamp": "2026-05-17T12:06:10.394Z"
+    },
+    {
+      "state": "TRIAGE_COMPLETE",
+      "timestamp": "2026-05-17T12:06:19.017Z"
+    },
+    {
+      "state": "RESPONSE_DRAFTED",
+      "timestamp": "2026-05-17T12:06:49.329Z"
+    },
+    {
+      "state": "ACTION_PLAN_CREATED",
+      "timestamp": "2026-05-17T12:07:48.512Z"
+    },
+    {
+      "state": "GROUNDING_VALIDATED",
+      "timestamp": "2026-05-17T12:08:36.873Z"
+    },
+    {
+      "state": "FINAL_OUTPUTS_WRITTEN",
+      "timestamp": "2026-05-17T12:08:36.874Z"
+    },
+    {
+      "state": "AUDIT_LOG_EXPORTED",
+      "timestamp": "2026-05-17T12:08:36.875Z"
+    }
+  ],
+  "ticket_count": 4,
+  "llm_calls_total": 16,
+  "unsupported_claims_corrected": 4,
+  "queue_summary": {
+    "trust_and_safety": 2,
+    "payments_ops": 1,
+    "trading_ops": 1
+  }
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "ticket_id": "T-1001",
+    "category": "withdrawal_delay",
+    "urgency": "medium",
+    "sentiment": "negative",
+    "resolution_mode": "reply_only",
+    "recommended_queue": "payments_ops",
+    "reasoning_summary": "Customer's 3-day withdrawal delay falls within the typical processing window per policy, but warrants timely clarification on status. The customer is verified and deserves a status update; this is resolvable through standard payment operations inquiry without escalation unless enhanced checks are ongoing.",
+    "source_chunk_ids": [
+      "payments-001",
+      "payments-002"
+    ]
+  },
+  {
+    "ticket_id": "T-1002",
+    "category": "account_security",
+    "urgency": "critical",
+    "sentiment": "negative",
+    "resolution_mode": "needs_specialist_escalation",
+    "recommended_queue": "trust_and_safety",
+    "reasoning_summary": "VIP customer with locked account and open positions at risk during security review. This combines high-priority security restriction with time-sensitive trading exposure, requiring immediate specialist intervention to assess position safety and expedite review if possible.",
+    "source_chunk_ids": [
+      "security-001",
+      "support_sla-001",
+      "trading_policies-004"
+    ]
+  },
+  {
+    "ticket_id": "T-1003",
+    "category": "trade_dispute",
+    "urgency": "medium",
+    "sentiment": "negative",
+    "resolution_mode": "needs_specialist_escalation",
+    "recommended_queue": "trading_ops",
+    "reasoning_summary": "Customer requests trade reversal due to user error (closing at a loss). This is a trade dispute that requires investigation by the trading operations team per policy. Support cannot promise reversal, and the dispute must be submitted within 24 hours of execution.",
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ]
+  },
+  {
+    "ticket_id": "T-1004",
+    "category": "account_security",
+    "urgency": "critical",
+    "sentiment": "negative",
+    "resolution_mode": "needs_specialist_escalation",
+    "recommended_queue": "trust_and_safety",
+    "reasoning_summary": "Customer reports an unsolicited password reset email indicating potential unauthorised access attempt. This is a suspected active security breach requiring immediate escalation to Trust and Safety for investigation and protective account measures.",
+    "source_chunk_ids": [
+      "security-002",
+      "security-001"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "ticket_id": "T-1001",
+    "response_text": "Hi, thank you for reaching out, and I'm sorry to hear your withdrawal has been delayed — I completely understand how frustrating this must be.\n\nWithdrawals for verified customers are typically reviewed within 24 hours of submission, though delays can occur in certain situations — for example, if enhanced checks are required, payment rails are temporarily unavailable, or the account is undergoing a review. We generally ask customers to allow up to 3 business days before contacting support, so your timing in reaching out now is appropriate.\n\nI've flagged your case to our payments operations team so they can look into what's causing the hold on your specific withdrawal. If your account requires any additional steps or verification, you would normally receive an email with instructions on how to proceed.\n\nPlease note that we're unable to guarantee a specific payout date at this time, but rest assured your case is being reviewed. If you have any questions in the meantime or don't hear back shortly, please don't hesitate to reply to this message.\n\nThank you for your patience.",
+    "tone": "empathetic",
+    "contains_policy_claims": true,
+    "source_chunk_ids": [
+      "payments-001",
+      "payments-002"
+    ]
+  },
+  {
+    "ticket_id": "T-1002",
+    "response_text": "Thank you for reaching out, and I completely understand how stressful this situation must be — especially with open positions to consider. I want to address your concerns as quickly as possible.\n\nYour account has been placed under a temporary security review. This is a protective measure our platform takes when certain activity patterns are detected, and it does not indicate that your account has been permanently closed or that any wrongdoing is assumed on your part.\n\nHere is what you need to know right now:\n\n**Your open positions are safe.** During a standard security review, open positions are maintained and will not be forcibly closed. You should have received a notification email when the restriction was applied.\n\n**Access during the review:** While the review is active, trading, deposits, and withdrawals are temporarily unavailable. A security review typically takes 1–3 business days to complete.\n\n**Next steps:** Because you are a VIP customer with open positions, your case is being treated as high priority. I strongly recommend contacting our Trust & Safety team directly so they can expedite your case and provide you with a personalised update on your account status.\n\nPlease note that while your positions are being held, you remain responsible for managing them in line with platform margin requirements. We are unable to offer guidance on trading decisions.\n\nWe sincerely apologise for the disruption and will do everything within our process to resolve this as promptly as possible. Please reach out to our Trust & Safety team immediately for the fastest resolution.",
+    "tone": "empathetic",
+    "contains_policy_claims": true,
+    "source_chunk_ids": [
+      "security-001",
+      "support_sla-001",
+      "trading_policies-004"
+    ]
+  },
+  {
+    "ticket_id": "T-1003",
+    "response_text": "Thank you for reaching out, and we understand how frustrating it can be to close a trade at a loss — we're sorry you're experiencing this.\n\nWe want to be transparent with you: trade reversals are not something we're able to promise or process directly through initial support contact. However, if you believe your trade was executed incorrectly due to a platform error (rather than a voluntary decision on your part), you may be eligible to submit a formal trade dispute for review.\n\nHere are some important things to know about that process:\n\n- **Disputes must be submitted within 24 hours of the trade execution.** If that window has passed, unfortunately the dispute will not be eligible for review.\n- **All dispute outcomes are determined solely by our trading operations team** after a thorough investigation. We are not able to guarantee any specific outcome, including trade reversal, credit, or compensation, at this stage.\n\nIf you'd like to proceed with a dispute, please respond to this ticket with the details of the trade in question (trade ID, time of execution, and a description of what you believe went wrong), and we'll route your case to the appropriate team.\n\nWe appreciate your patience and will do our best to ensure your situation is reviewed fairly.",
+    "tone": "empathetic",
+    "contains_policy_claims": true,
+    "source_chunk_ids": [
+      "trading_policies-002"
+    ]
+  },
+  {
+    "ticket_id": "T-1004",
+    "response_text": "Thank you for reaching out, and we completely understand why this would be concerning. An unrequested password reset email is something to take seriously, and we want to help you secure your account right away.\n\nHere are the steps we recommend you take immediately:\n\n1. **Reset your password now** — Go to the login page and initiate a new password reset. Choose a strong, unique password that you haven't used elsewhere.\n2. **Enable two-factor authentication (2FA)** — If you haven't already activated 2FA on your account, please do so as soon as possible. This adds an important layer of protection.\n3. **Contact our support team to report the incident** — By reporting this, our team can log the concern and escalate it to our Trust and Safety team for review.\n\nPlease be aware that our support agents will **never** ask you for your password, PIN, or any one-time codes. If anyone requests this information claiming to be from our team, do not share it.\n\nDepending on the outcome of any security review, your account may be temporarily restricted as a protective measure. If that happens, you'll be notified by email, and the review typically takes 1–3 business days. During that time, your open positions will be maintained.\n\nYour account security is our priority. Please don't hesitate to reach out if you have any further questions or concerns.",
+    "tone": "empathetic",
+    "contains_policy_claims": true,
+    "source_chunk_ids": [
+      "security-002",
+      "security-001"
+    ]
+  }
+]

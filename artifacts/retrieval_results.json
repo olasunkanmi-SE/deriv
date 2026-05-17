@@ -1,0 +1,50 @@
+[
+  {
+    "ticket_id": "T-1001",
+    "query_text": "Withdrawal pending for 3 days Hi, my withdrawal has been pending for three days. I already verified my identity last month. Can you tell me what is going on and when I will receive my funds?",
+    "selected_chunk_ids": [
+      "payments-002",
+      "security-004",
+      "payments-001",
+      "security-001"
+    ],
+    "selection_reason": "BM25 top-4: payments-002(8.433), security-004(7.411), payments-001(7.295), security-001(6.977)",
+    "omitted_relevant_risk": null
+  },
+  {
+    "ticket_id": "T-1002",
+    "query_text": "Why was my account locked? I tried logging in today and got a message saying my account is locked for security review. I need access urgently because I have open positions.",
+    "selected_chunk_ids": [
+      "security-001",
+      "support_sla-001",
+      "trading_policies-004",
+      "payments-001"
+    ],
+    "selection_reason": "BM25 top-4: security-001(12.131), support_sla-001(8.043), trading_policies-004(6.716), payments-001(5.719)",
+    "omitted_relevant_risk": null
+  },
+  {
+    "ticket_id": "T-1003",
+    "query_text": "Can you reverse my losing trade? I made a mistake and closed a trade at a loss. Please reverse it and restore my balance.",
+    "selected_chunk_ids": [
+      "security-003",
+      "security-001",
+      "trading_policies-002",
+      "trading_policies-004"
+    ],
+    "selection_reason": "BM25 top-4: security-003(6.147), security-001(4.671), trading_policies-002(3.476), trading_policies-004(2.982)",
+    "omitted_relevant_risk": "Chunk \"security-004\" (score 2.953) is within 15% of the Kth selected (score 2.982) and may be relevant"
+  },
+  {
+    "ticket_id": "T-1004",
+    "query_text": "I think someone accessed my account I saw a password reset email that I did not request and I am worried someone may have accessed my account. What should I do right now?",
+    "selected_chunk_ids": [
+      "security-004",
+      "security-002",
+      "security-001",
+      "payments-001"
+    ],
+    "selection_reason": "BM25 top-4: security-004(8.747), security-002(7.239), security-001(6.662), payments-001(5.395)",
+    "omitted_relevant_risk": "Chunk \"payments-003\" (score 4.746) is within 15% of the Kth selected (score 5.395) and may be relevant"
+  }
+]
