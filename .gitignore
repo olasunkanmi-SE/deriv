@@ -1,0 +1,7 @@
+.codebuddy
+node_modules/
+dist/
+artifacts/
+.env
+.env.*
+*.env

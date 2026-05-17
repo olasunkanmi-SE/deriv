@@ -1,0 +1,36 @@
+{
+  "tickets": [
+    {
+      "ticket_id": "T-1001",
+      "submitted_at": "2026-05-10T09:15:00Z",
+      "customer_tier": "standard",
+      "language": "en",
+      "subject": "Withdrawal pending for 3 days",
+      "message": "Hi, my withdrawal has been pending for three days. I already verified my identity last month. Can you tell me what is going on and when I will receive my funds?"
+    },
+    {
+      "ticket_id": "T-1002",
+      "submitted_at": "2026-05-10T09:18:00Z",
+      "customer_tier": "vip",
+      "language": "en",
+      "subject": "Why was my account locked?",
+      "message": "I tried logging in today and got a message saying my account is locked for security review. I need access urgently because I have open positions."
+    },
+    {
+      "ticket_id": "T-1003",
+      "submitted_at": "2026-05-10T09:20:00Z",
+      "customer_tier": "standard",
+      "language": "en",
+      "subject": "Can you reverse my losing trade?",
+      "message": "I made a mistake and closed a trade at a loss. Please reverse it and restore my balance."
+    },
+    {
+      "ticket_id": "T-1004",
+      "submitted_at": "2026-05-10T09:22:00Z",
+      "customer_tier": "standard",
+      "language": "en",
+      "subject": "I think someone accessed my account",
+      "message": "I saw a password reset email that I did not request and I am worried someone may have accessed my account. What should I do right now?"
+    }
+  ]
+}

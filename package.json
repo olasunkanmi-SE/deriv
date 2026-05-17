@@ -1,0 +1,25 @@
+{
+  "name": "deriv-ai-recruiter",
+  "version": "0.1.0",
+  "description": "AI-assisted support triage pipeline",
+  "main": "dist/interface/cli/run.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/interface/cli/run.ts",
+    "validate": "tsx src/interface/validation/validate.ts",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.19",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.1.0"
+  }
+}
