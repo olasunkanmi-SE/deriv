@@ -91,9 +91,7 @@ export class DraftResponsesUseCase {
       (id): id is string => typeof id === 'string' && allowed.has(id),
     );
 
-    // Always carry source IDs forward — fall back to all allowed IDs when the
-    // LLM omits them, so grounding validation has something to check against.
-    const sourceChunkIds = parsedChunkIds.length > 0 ? parsedChunkIds : allowedChunkIds;
+    const sourceChunkIds = parsedChunkIds;
 
     const responseText = typeof parsed['response_text'] === 'string' && parsed['response_text'].trim()
       ? parsed['response_text'].trim()

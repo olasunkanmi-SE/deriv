@@ -68,7 +68,7 @@ export class PipelineOrchestrator {
       this.deps.artifactRepo,
       this.deps.retrievalConfig,
     );
-    const { results: retrievalResults, nextState: afterRetrieval } = await retrieveUseCase.execute(
+    const { results: retrievalResults, tickets: ticketsWithConfidence, nextState: afterRetrieval } = await retrieveUseCase.execute(
       tickets,
       chunks,
       this.state,
@@ -78,30 +78,30 @@ export class PipelineOrchestrator {
     // Stage 1 LLM: Triage
     const triageUseCase = new TriageTicketsUseCase(this.deps.llm, this.deps.artifactRepo);
     const { triageResults, nextState: afterTriage } = await triageUseCase.execute(
-      tickets,
+      ticketsWithConfidence,
       retrievalResults,
       chunks,
       this.state,
     );
     this.advance(afterTriage);
-    this.llmCallCount += tickets.length;
+    this.llmCallCount += ticketsWithConfidence.length;
 
     // Stage 2 LLM: Response drafting
     const draftUseCase = new DraftResponsesUseCase(this.deps.llm, this.deps.artifactRepo);
     const { drafts, nextState: afterDraft } = await draftUseCase.execute(
-      tickets,
+      ticketsWithConfidence,
       triageResults,
       retrievalResults,
       chunks,
       this.state,
     );
     this.advance(afterDraft);
-    this.llmCallCount += tickets.length;
+    this.llmCallCount += drafts.length;
 
     // Stage 3 LLM: Action planning
     const actionUseCase = new CreateActionPlanUseCase(this.deps.llm, this.deps.artifactRepo);
     const { actionPlans, nextState: afterAction } = await actionUseCase.execute(
-      tickets,
+      ticketsWithConfidence,
       triageResults,
       drafts,
       retrievalResults,
@@ -109,12 +109,12 @@ export class PipelineOrchestrator {
       this.state,
     );
     this.advance(afterAction);
-    this.llmCallCount += tickets.length;
+    this.llmCallCount += actionPlans.length;
 
     // Stage 4 LLM: Grounding validation
     const groundingUseCase = new ValidateGroundingUseCase(this.deps.llm, this.deps.artifactRepo);
     const { validations, nextState: afterGrounding } = await groundingUseCase.execute(
-      tickets,
+      ticketsWithConfidence,
       triageResults,
       drafts,
       actionPlans,
@@ -123,12 +123,12 @@ export class PipelineOrchestrator {
       this.state,
     );
     this.advance(afterGrounding);
-    this.llmCallCount += tickets.length;
+    this.llmCallCount += ticketsWithConfidence.length;
 
     // Finalise
     const finaliseUseCase = new FinaliseResultsUseCase(this.deps.artifactRepo);
     const { outputs, nextState: afterFinalise } = await finaliseUseCase.execute(
-      tickets,
+      ticketsWithConfidence,
       triageResults,
       drafts,
       actionPlans,
@@ -140,7 +140,7 @@ export class PipelineOrchestrator {
     // Queue ranking
     const rankUseCase = new RankQueueUseCase(this.deps.artifactRepo);
     const { ranking, nextState: afterRank } = await rankUseCase.execute(
-      tickets,
+      ticketsWithConfidence,
       outputs,
       this.state,
     );

@@ -53,8 +53,6 @@ export class RankQueueUseCase {
     assertState(currentState, PipelineState.FINAL_OUTPUTS_WRITTEN);
 
     const ticketMap = new Map(tickets.map((t) => [t.ticket_id, t]));
-    const outputMap = new Map(outputs.map((o) => [o.ticket_id, o]));
-
     const entries: QueueEntry[] = [];
 
     for (const output of outputs) {

@@ -150,5 +150,8 @@ function hasTokenOverlap(responseText: string, chunkText: string): boolean {
   for (const token of responseTokens) {
     if (chunkTokens.has(token)) shared++;
   }
-  return shared >= 1;
+  const responseSize = responseTokens.size;
+  if (responseSize === 0) return false;
+  const jaccard = shared / (responseSize + chunkTokens.size - shared);
+  return shared >= 3 || jaccard >= 0.1;
 }

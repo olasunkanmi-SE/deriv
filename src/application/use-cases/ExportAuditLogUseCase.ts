@@ -39,7 +39,7 @@ export class ExportAuditLogUseCase {
     assertState(currentState, PipelineState.AUDIT_LOG_EXPORTED);
 
     const unsupportedClaimsCorrected = outputs.reduce(
-      (sum, o) => sum + o.validation_summary.unsupported_claims_found,
+      (sum, o) => sum + (o.validation_summary.corrected ? o.validation_summary.unsupported_claims_found : 0),
       0,
     );
 

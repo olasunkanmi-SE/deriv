@@ -49,6 +49,8 @@ async function checkArtifactsExist(): Promise<CheckResult[]> {
     'action_plan.json',
     'grounding_validation.json',
     'final_ticket_outputs.json',
+    'queue_ranking.json',
+    'audit_log.json',
     'llm_calls.jsonl',
   ];
 

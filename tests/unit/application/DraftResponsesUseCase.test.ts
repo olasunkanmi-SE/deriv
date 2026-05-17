@@ -164,7 +164,7 @@ describe('DraftResponsesUseCase', () => {
     expect(result.drafts[0]?.source_chunk_ids).not.toContain('HALLUCINATED-999');
   });
 
-  it('falls back to allowedChunkIds when LLM omits source_chunk_ids', async () => {
+  it('preserves empty source_chunk_ids when LLM returns none (no implicit fallback)', async () => {
     const responseWithoutIds = JSON.stringify({
       response_text: 'Your case is under review.',
       tone: 'professional',
@@ -182,7 +182,8 @@ describe('DraftResponsesUseCase', () => {
       PipelineState.TRIAGE_COMPLETE,
     );
 
-    expect(result.drafts[0]?.source_chunk_ids).toEqual(['payments-001']);
+    // LLM explicitly returned no citations — honour that; do not inject all retrieved chunks
+    expect(result.drafts[0]?.source_chunk_ids).toEqual([]);
   });
 
   it('uses safe defaults when LLM returns invalid JSON', async () => {

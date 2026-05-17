@@ -24,12 +24,12 @@ export class AnthropicLLMService implements ILLMService {
     const model = this.selectModel(request.stage);
     const promptHash = sha256(request.prompt);
 
-    let result: string;
+    let result: string = await this.callAPI(model, request.prompt);
     try {
-      result = await this.callAPI(model, request.prompt);
-      JSON.parse(result); // validate; throws if invalid
-    } catch {
-      // Single retry with explicit correction appended
+      JSON.parse(result); // validate; throws SyntaxError if invalid
+    } catch (err) {
+      if (!(err instanceof SyntaxError)) throw err;
+      // Single retry only for malformed JSON — not for network/API errors
       const retryPrompt =
         `${request.prompt}\n\n` +
         'IMPORTANT: Your previous response was not valid JSON. ' +

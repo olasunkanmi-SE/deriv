@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { PipelineOrchestrator } from '../../src/application/pipeline/PipelineOrchestrator.js';
 import { PipelineState } from '../../src/domain/pipeline/PipelineState.js';
-import { SpyLLMCallLogger } from '../stubs/SpyLLMCallLogger.js';
+
 import { StubLLMService } from '../stubs/StubLLMService.js';
 import { FileArtifactRepository } from '../../src/infrastructure/repositories/FileArtifactRepository.js';
 import { FileKnowledgeRepository } from '../../src/infrastructure/repositories/FileKnowledgeRepository.js';
@@ -78,18 +78,14 @@ const TICKETS_PATH = path.join(ROOT, 'tickets.json');
 
 let artifactsDir: string;
 let orchestrator: PipelineOrchestrator;
-let spyLogger: SpyLLMCallLogger;
 
 beforeAll(async () => {
   artifactsDir = await fs.mkdtemp(path.join(os.tmpdir(), 'deriv-e2e-'));
-  spyLogger = new SpyLLMCallLogger();
   const clock = { now: () => new Date().toISOString() };
 
   const artifactRepo = new FileArtifactRepository(artifactsDir);
   const llmCallLogger = new JsonlLLMCallLogger(artifactRepo);
 
-  // Use JsonlLLMCallLogger so llm_calls.jsonl is written to disk.
-  // SpyLogger is unused here but kept for type compatibility.
   const stub = new StubLLMService(
     {
       triage: TRIAGE_FIXTURES,

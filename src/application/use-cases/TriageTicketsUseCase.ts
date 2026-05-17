@@ -77,7 +77,7 @@ export class TriageTicketsUseCase {
     try {
       parsed = JSON.parse(raw) as Record<string, unknown>;
     } catch {
-      console.warn(`[TriageTriage] Invalid JSON for ${ticket.ticket_id}, using safe defaults`);
+      console.warn(`[TriageTickets] Invalid JSON for ${ticket.ticket_id}, using safe defaults`);
       parsed = {};
     }
 
@@ -115,7 +115,7 @@ function safeParse<T>(value: string, parser: (s: string) => T, fallback: T): T {
   try {
     return parser(value);
   } catch {
-    console.warn(`[TriageTriage] Vocabulary parse failed for "${value}", using fallback`);
+    console.warn(`[TriageTickets] Vocabulary parse failed for "${value}", using fallback`);
     return fallback;
   }
 }
