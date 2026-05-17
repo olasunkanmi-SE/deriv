@@ -1,5 +1,4 @@
 import crypto from 'node:crypto';
-import path from 'node:path';
 import { KnowledgeChunk } from '../../domain/entities/KnowledgeChunk.js';
 import { IChunker } from '../../domain/services/IChunker.js';
 
@@ -12,7 +11,7 @@ export class MarkdownChunker implements IChunker {
       return [];
     }
 
-    const sections = splitIntoSections(content);
+    const sections = splitIntoSections(content, documentId);
     const chunks: KnowledgeChunk[] = [];
     let counter = 1;
 
@@ -43,7 +42,7 @@ interface Section {
   text: string;
 }
 
-function splitIntoSections(content: string): Section[] {
+function splitIntoSections(content: string, documentId: string): Section[] {
   const lines = content.split('\n');
   const breakIndices: number[] = [];
 
@@ -54,7 +53,7 @@ function splitIntoSections(content: string): Section[] {
   }
 
   if (breakIndices.length === 0) {
-    return [{ title: path.basename('document'), text: content }];
+    return [{ title: documentId, text: content }];
   }
 
   const sections: Section[] = [];

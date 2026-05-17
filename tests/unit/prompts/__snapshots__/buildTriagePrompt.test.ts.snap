@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildTriagePrompt > matches snapshot 1`] = `
+"You are a support triage specialist for a financial trading platform.
+
+## Ticket
+ticket_id: T-1001
+customer_tier: standard
+submitted_at: 2026-05-10T09:15:00Z
+subject: Withdrawal pending for 3 days
+message: My withdrawal has been pending for three days. When will I receive my funds?
+
+## Knowledge Base Context
+[payments-001] Withdrawals
+Verified customers have withdrawals reviewed within 24 hours.
+
+[support_sla-001] Support prioritisation
+VIP and security cases are prioritised.
+
+## Task
+Classify the ticket above and return ONLY a JSON object with these exact fields:
+
+{
+  "category": <one of: withdrawal_delay | account_security | account_access | trade_dispute | general_query>,
+  "urgency": <one of: critical | high | medium | low>,
+  "sentiment": <one of: negative | neutral | positive | mixed>,
+  "resolution_mode": <one of: reply_only | needs_human_review | needs_specialist_escalation>,
+  "recommended_queue": <one of: payments_ops | trust_and_safety | customer_support | trading_ops | account_operations>,
+  "reasoning_summary": "<1–2 sentences explaining the classification and urgency>",
+  "source_chunk_ids": ["<only chunk IDs from the context above that informed your classification>"]
+}
+
+## Classification rules
+- urgency must reflect customer risk and business risk, not just emotional tone
+- critical: account locked with open positions, suspected fraud, active security breach
+- high: multi-day withdrawal delay, account access blocked, security concern
+- medium: trade dispute, general policy question with financial impact
+- low: informational request, minor clarification
+- source_chunk_ids must only reference chunk IDs present in the Knowledge Base Context above
+- if retrieval context is insufficient to classify confidently, set resolution_mode to needs_human_review"
+`;

@@ -39,7 +39,7 @@ export class TfIdfBm25Retriever implements IRetrievalService {
       }
 
       let score = 0;
-      for (const term of queryTokens) {
+      for (const term of new Set(queryTokens)) {
         const termFreq = tf.get(term) ?? 0;
         if (termFreq === 0) continue;
         const numerator = termFreq * (K1 + 1);

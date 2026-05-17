@@ -412,8 +412,8 @@ Work feature by feature. Each step is independently deployable and has tests bef
 - [x] **Step 3** — Knowledge ingestion (`MarkdownChunker`, `FileKnowledgeRepository`, `IndexKnowledgeUseCase`, sample `knowledge_base/*.md`). Deliverable: `knowledge_corpus.json` produced.
 - [x] **Step 4** — Ticket loading (`FileTicketRepository`, `LoadInputsUseCase`, `NormaliseTicketsUseCase`, sample `tickets.json`). Deliverable: normalised tickets in memory; unit tests pass.
 - [x] **Step 5** — Retrieval (`TfIdfBm25Retriever`, `RetrieveKnowledgeUseCase`). Deliverable: `retrieval_results.json` produced; BM25 unit tests pass.
-- [ ] **Step 6** — LLM infrastructure (`AnthropicLLMService`, `JsonlLLMCallLogger`, `StubLLMService`, `EnvConfig`). Deliverable: stub call produces a valid JSONL record; graceful failure without API key.
-- [ ] **Step 7** — Stage 1 Triage (`buildTriagePrompt`, `TriageTicketsUseCase`). Deliverable: `triage.json`; prompt snapshot test.
+- [x] **Step 6** — LLM infrastructure (`AnthropicLLMService`, `JsonlLLMCallLogger`, `StubLLMService`, `EnvConfig`). Deliverable: stub call produces a valid JSONL record; graceful failure without API key.
+- [x] **Step 7** — Stage 1 Triage (`buildTriagePrompt`, `TriageTicketsUseCase`). Deliverable: `triage.json`; prompt snapshot test.
 - [ ] **Step 8** — Stage 2 Response drafting (`buildResponsePrompt`, `DraftResponsesUseCase`). Deliverable: `response_drafts.json`.
 - [ ] **Step 9** — Stage 3 Action planning (`buildActionPlanPrompt`, `CreateActionPlanUseCase`). Deliverable: `action_plan.json`; handoff note diversity asserted.
 - [ ] **Step 10** — Stage 4 Grounding validation (`GroundingChecker`, `ValidateGroundingUseCase`). Deliverable: `grounding_validation.json`; known-bad claim caught by tests.

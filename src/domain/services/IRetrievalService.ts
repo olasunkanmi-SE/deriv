@@ -5,6 +5,13 @@ export interface RetrievalCandidate {
   score: number;
 }
 
+export interface RetrievalConfig {
+  topK: number;
+  minScore: number;
+  confidenceThreshold: number;
+  epsilon: number;
+}
+
 export interface IRetrievalService {
   retrieve(query: string, chunks: KnowledgeChunk[], topK: number): RetrievalCandidate[];
 }

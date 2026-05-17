@@ -6,7 +6,7 @@ import { PipelineStateError } from '../../../src/domain/errors.js';
 import { PipelineState } from '../../../src/domain/pipeline/PipelineState.js';
 import type { IArtifactRepository } from '../../../src/domain/repositories/IArtifactRepository.js';
 import type { IRetrievalService, RetrievalCandidate } from '../../../src/domain/services/IRetrievalService.js';
-import type { RetrievalConfig } from '../../../src/infrastructure/config/EnvConfig.js';
+import type { RetrievalConfig } from '../../../src/domain/services/IRetrievalService.js';
 
 const CONFIG: RetrievalConfig = {
   topK: 2,

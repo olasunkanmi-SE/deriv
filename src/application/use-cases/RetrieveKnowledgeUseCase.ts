@@ -3,8 +3,7 @@ import { RetrievalResult } from '../../domain/entities/RetrievalResult.js';
 import { Ticket } from '../../domain/entities/Ticket.js';
 import { assertState, nextState, PipelineState } from '../../domain/pipeline/PipelineState.js';
 import { IArtifactRepository } from '../../domain/repositories/IArtifactRepository.js';
-import { IRetrievalService } from '../../domain/services/IRetrievalService.js';
-import { RetrievalConfig } from '../../infrastructure/config/EnvConfig.js';
+import { IRetrievalService, RetrievalConfig } from '../../domain/services/IRetrievalService.js';
 
 export interface RetrieveKnowledgeResult {
   results: RetrievalResult[];

@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import { RawTicket, CustomerTier } from '../../domain/entities/RawTicket.js';
 import { ITicketRepository } from '../../domain/repositories/ITicketRepository.js';
 
-const VALID_TIERS = new Set<string>(['standard', 'vip']);
+const VALID_TIERS = new Set<string>(['standard', 'vip'] satisfies CustomerTier[]);
 
 export class FileTicketRepository implements ITicketRepository {
   constructor(private readonly ticketsPath: string) {}

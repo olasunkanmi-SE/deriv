@@ -32,6 +32,7 @@ function normalise(raw: RawTicket): Ticket {
     message,
     language,
     retrieval_query,
+    low_retrieval_confidence: false,
   };
 }
 
